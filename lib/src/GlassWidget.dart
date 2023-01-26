@@ -18,8 +18,8 @@ extension GlassWidget<T extends Widget> on T {
   ClipRRect asGlass({
     double blurX = 50.0,
     double blurY = 50.0,
-    Color tintColor = Color.fromARGB(255, 0, 22, 56),
-    bool frosted = true,
+    Color tintColor = Colors.black,
+    bool frosted = false,
     BorderRadius? clipBorderRadius = BorderRadius.zero,
     Clip clipBehaviour = Clip.antiAlias,
     TileMode tileMode = TileMode.clamp,
@@ -42,8 +42,8 @@ extension GlassWidget<T extends Widget> on T {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      tintColor.withOpacity(0.3),
-                      tintColor.withOpacity(0.15),
+                      tintColor.withOpacity(0.8),
+                      tintColor.withOpacity(1.0),
                     ],
                   )
                 : null,
