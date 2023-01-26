@@ -7,14 +7,15 @@ extension GlassWidget<T extends Widget> on T {
   /// Parameters:
   /// * [blurX]: Amount of blur in the direction of the X axis, defaults to 50.0.
   /// * [blurY]: Amount of blur in the direction of the Y axis, defaults to 50.0.
-  /// * [tintColor]: Tint color for the glass (defaults to Colors.white).
-  /// * [frosted]: Whether this glass should be frosted or not (defaults to true).
+  /// * [tintColor]: Tint color for the glass (defaults to Colors.black).
+  /// * [frosted]: Whether this glass should be frosted or not (defaults to false).
   /// * [clipBorderRadius]: The border radius of the rounded corners.
   ///   Values are clamped so that horizontal and vertical radii sums do not exceed width/height.
   ///   This value is ignored if clipper is non-null.
   /// * [clipBehaviour]: Defaults to [Clip.antiAlias].
   /// * [tileMode]: Defines what happens at the edge of a gradient or the sampling of a source image in an [ImageFilter].
   /// * [clipper]: If non-null, determines which clip to use.
+  /// 
   ClipRRect asGlass({
     double blurX = 50.0,
     double blurY = 50.0,
