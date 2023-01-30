@@ -5,8 +5,9 @@ extension GlassWidget<T extends Widget> on T {
   /// .asGlass(): Converts the calling widget into a glass widget.
   ///
   /// Parameters:
-  /// * [blurX]: Amount of blur in the direction of the X axis, defaults to 50.0.
-  /// * [blurY]: Amount of blur in the direction of the Y axis, defaults to 50.0.
+  /// * [shape]: Pass the shape of the theme element or custom, default RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)).
+  /// * [blurX]: Amount of blur in the direction of the X axis, defaults to 10.0.
+  /// * [blurY]: Amount of blur in the direction of the Y axis, defaults to 10.0.
   /// * [tintColor]: Tint color for the glass (defaults to Colors.black).
   /// * [frosted]: Whether this glass should be frosted or not (defaults to false).
   /// * [clipBorderRadius]: The border radius of the rounded corners.
@@ -17,20 +18,26 @@ extension GlassWidget<T extends Widget> on T {
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
   ClipRRect asGlass({
-    double blurX = 50.0,
-    double blurY = 50.0,
-    Color tintColor = Colors.black,
+    ShapeBorder shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+    double blurX = 10.0,
+    double blurY = 10.0,
+    Color tintColor = Colors.white,
     bool frosted = false,
-    BorderRadius? clipBorderRadius = BorderRadius.zero,
+    //BorderRadius? clipBorderRadius = BorderRadius.zero,
     Clip clipBehaviour = Clip.antiAlias,
     TileMode tileMode = TileMode.clamp,
-    CustomClipper<RRect>? clipper,
+    //CustomClipper<RRect>? clipper,
   }) {
-    return ClipRRect(
-      clipper: clipper,
+    return 
+    // ClipRRect(
+    //   clipper: clipper,
+    //   clipBehavior: clipBehaviour,
+    //   borderRadius: clipBorderRadius,
+
+    Container(
       clipBehavior: clipBehaviour,
-      borderRadius: clipBorderRadius,
-      child: BackdropFilter(
+      decoration: ShapeDecoration(shape: shape),
+     child: BackdropFilter(
         filter: new ImageFilter.blur(
           sigmaX: blurX,
           sigmaY: blurY,
@@ -40,11 +47,11 @@ extension GlassWidget<T extends Widget> on T {
           decoration: BoxDecoration(
             gradient: (tintColor != Colors.transparent)
                 ? LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                     colors: [
-                      tintColor.withOpacity(0.8),
-                      tintColor.withOpacity(1.0),
+                      tintColor.withOpacity(0.1),
+                      tintColor.withOpacity(.05),
                     ],
                   )
                 : null,
