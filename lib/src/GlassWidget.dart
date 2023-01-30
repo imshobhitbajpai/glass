@@ -18,7 +18,7 @@ extension GlassWidget<T extends Widget> on T {
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
   ClipRRect asGlass({
-    ShapeBorder shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+    ShapeBorder? shape,
     double blurX = 10.0,
     double blurY = 10.0,
     Color tintColor = Colors.white,
@@ -36,7 +36,7 @@ extension GlassWidget<T extends Widget> on T {
 
     Container(
       clipBehavior: clipBehaviour,
-      decoration: ShapeDecoration(shape: shape),
+      decoration: ShapeDecoration(shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
      child: BackdropFilter(
         filter: new ImageFilter.blur(
           sigmaX: blurX,
