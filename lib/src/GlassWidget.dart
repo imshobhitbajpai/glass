@@ -36,7 +36,7 @@ extension GlassWidget<T extends Widget> on T {
 
     Container(
       clipBehavior: clipBehaviour,
-      decoration: ShapeDecoration(shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+      decoration: ShapeDecoration(shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))), //default card theme shape
      child: BackdropFilter(
         filter: new ImageFilter.blur(
           sigmaX: blurX,
