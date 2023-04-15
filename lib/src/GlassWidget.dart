@@ -17,8 +17,7 @@ extension GlassWidget<T extends Widget> on T {
   /// * [tileMode]: Defines what happens at the edge of a gradient or the sampling of a source image in an [ImageFilter].
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
-  Widget asGlass({
-    BuildContext context,
+  Widget asGlass(BuildContext context,{
     ShapeBorder? shape,
     double blurX = 10.0,
     double blurY = 10.0,
