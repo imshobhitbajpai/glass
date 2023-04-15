@@ -18,6 +18,7 @@ extension GlassWidget<T extends Widget> on T {
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
   Widget asGlass({
+    BuildContext context,
     ShapeBorder? shape,
     double blurX = 10.0,
     double blurY = 10.0,
