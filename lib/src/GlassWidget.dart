@@ -36,7 +36,7 @@ extension GlassWidget<T extends Widget> on T {
 
     Container(
       clipBehavior: clipBehaviour,
-      decoration: ShapeDecoration(shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))), //default card theme shape
+      decoration: ShapeDecoration(shape: shape ?? Theme.of(context).cardTheme.shape), //default card theme shape, mostly used behind neary hald transparent cards
      child: BackdropFilter(
         filter: new ImageFilter.blur(
           sigmaX: blurX,
