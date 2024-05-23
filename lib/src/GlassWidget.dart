@@ -18,6 +18,7 @@ extension GlassWidget<T extends Widget> on T {
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
   Widget asGlass(BuildContext context,{
+    bool enable = true,
     ShapeBorder? shape,
     double blurX = 10.0,
     double blurY = 10.0,
@@ -28,6 +29,9 @@ extension GlassWidget<T extends Widget> on T {
     TileMode tileMode = TileMode.clamp,
     //CustomClipper<RRect>? clipper,
   }) {
+    if(!enable) {
+      return this;
+    }
     return 
     // ClipRRect(
     //   clipper: clipper,
