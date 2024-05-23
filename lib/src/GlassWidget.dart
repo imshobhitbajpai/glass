@@ -48,7 +48,6 @@ extension GlassWidget<T extends Widget> on T {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: enable ? Colors.transparent : Colors.black54,
             gradient: (tintColor != Colors.transparent)
                 ? LinearGradient(
                     begin: Alignment.centerLeft,
