@@ -29,9 +29,6 @@ extension GlassWidget<T extends Widget> on T {
     TileMode tileMode = TileMode.clamp,
     //CustomClipper<RRect>? clipper,
   }) {
-    if(!enable) {
-      return this;
-    }
     return 
     // ClipRRect(
     //   clipper: clipper,
@@ -45,12 +42,13 @@ extension GlassWidget<T extends Widget> on T {
       ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))), //default card theme shape, mostly used behind neary hald transparent cards
      child: BackdropFilter(
         filter: new ImageFilter.blur(
-          sigmaX: blurX,
-          sigmaY: blurY,
+          sigmaX: enable ? blurX : 0.0,
+          sigmaY: enable ? blurY : 0.0,
           tileMode: tileMode,
         ),
         child: Container(
           decoration: BoxDecoration(
+            color: enable ? Colors.transparent : Colors.black54,
             gradient: (tintColor != Colors.transparent)
                 ? LinearGradient(
                     begin: Alignment.centerLeft,
