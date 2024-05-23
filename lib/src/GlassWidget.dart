@@ -18,6 +18,7 @@ extension GlassWidget<T extends Widget> on T {
   /// * [clipper]: If non-null, determines which clip to use.
   /// 
   Widget asGlass(BuildContext context,{
+    bool enable = true;
     ShapeBorder? shape,
     double blurX = 10.0,
     double blurY = 10.0,
@@ -41,13 +42,13 @@ extension GlassWidget<T extends Widget> on T {
       ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))), //default card theme shape, mostly used behind neary hald transparent cards
      child: BackdropFilter(
         filter: new ImageFilter.blur(
-          sigmaX: blurX,
-          sigmaY: blurY,
+          sigmaX: enable ? blurX : 0.0,
+          sigmaY: enable ? blurY : 0.0,
           tileMode: tileMode,
         ),
         child: Container(
           decoration: BoxDecoration(
-            gradient: (tintColor != Colors.transparent)
+            gradient: (tintColor != Colors.transparent) && enable
                 ? LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
